@@ -1,0 +1,45 @@
+﻿@model IEnumerable<proje15haziran.Models.BlogModel>
+@{
+    ViewBag.Title = "Index";
+}
+<script src="https://kit.fontawesome.com/d09ae03555.js" crossorigin="anonymous"></script>
+
+<h2>Blog Listesi</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <label class="label label-info">
+        @User.Identity.Name
+    </label>
+    <a href="/Account/Logout" class="btn btn-danger">Logout</a>
+    <a href="/Blog/Create" class="btn btn-primary">Yeni Blog</a>
+}
+else
+{
+    <a href="/Account/Login" class="btn btn-success">Login</a>
+    <a href="/Account/Register" class="btn btn-primary">Register</a>
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <a href="/RoleAdmin/Index" class="btn btn-danger">Admin Panel</a>
+}
+else
+{
+    <p></p>
+}
+
+
+@Html.Partial("Bloglistesi", Model)
+
+@section SagIcerik
+    {
+    @Html.Partial("Search")
+    @{Html.RenderAction("Kategorilistesi", "Category");}
+
+}
+
+
+
+
+

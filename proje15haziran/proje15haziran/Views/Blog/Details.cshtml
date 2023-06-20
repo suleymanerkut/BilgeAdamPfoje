@@ -1,0 +1,81 @@
+﻿@model proje15haziran.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+<script src="https://kit.fontawesome.com/d09ae03555.js" crossorigin="anonymous"></script>
+
+<h1>@Model.Baslik</h1>
+<hr />
+<p>
+    <i class="fa-solid fa-clock"></i>
+    @Model.Tarih
+</p>
+<hr />
+<img src="@Model.Resim" style="max-width:850px;" />
+<hr />
+<blockquote class="blockquote">
+    <p>@Model.Aciklama</p>
+</blockquote>
+<p>@Model.Icerik</p>
+
+<div class="comment">
+    <div class="well">
+        <h4>Yorum Yap</h4>
+        <form role="form">
+            <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+<p></p>
+<div class="d-flex align-items-center">
+    <div class="flex-shrink-0">
+        <img src="https://place-hold.it/64x64" alt="...">
+    </div>
+    <div class="flex-grow-1 ms-3">
+        This is some content from a media component. You can replace this with any content and adjust it as needed.
+    </div>
+</div>
+<p></p>
+<div class="d-flex align-items-center">
+    <div class="flex-shrink-0">
+        <img src="https://place-hold.it/64x64" alt="...">
+    </div>
+    <div class="flex-grow-1 ms-3">
+        This is some content from a media component. You can replace this with any content and adjust it as needed.
+    </div>
+</div>
+<p></p>
+<div class="d-flex align-items-center">
+    <div class="flex-shrink-0">
+        <img src="https://place-hold.it/64x64" alt="...">
+    </div>
+    <div class="flex-grow-1 ms-3">
+        This is some content from a media component. You can replace this with any content and adjust it as needed.
+    </div>
+</div>
+<p></p>
+
+
+@section SagIcerik
+    {
+    <div class="well">
+        <h4>Arama</h4>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                    <span>?</span>
+                </button>
+            </span>
+        </div>
+    </div>
+    @{Html.RenderAction("Kategorilistesi", "Category");}
+
+}
+
+
